@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>act1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Belanjaan</div>
+        <hr>
+        <p>Nama Buah : <b th:text="${namefruit}"></b>
+        <p>Harga Perkilo : Rp.<b th:text="${pricefruit}"></b>
+        <p>Jumlah : <b th:text="${amountkilo}"></b> Kg
+        <p>Harga Awal : Rp.<b th:text="${beforeprice}"></b>
+        <p>Jumlah Diskon : <b th:text="${discnumber}"></b>%
+        <p>Harga Diskon : Rp.<b th:text="${discamount}"></b>
+        <p>Total Bayar : Rp.<b th:text="${afterprice}"></b>
+    </body>
+</html>
