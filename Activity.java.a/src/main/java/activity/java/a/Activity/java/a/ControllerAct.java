@@ -19,37 +19,18 @@ public class ControllerAct {
     @RequestMapping("/getbill")
     public String belanja(HttpServletRequest data, Model n){
         String name = data.getParameter("var_name");
+        Double price = Double.valueOf(data.getParameter("var_price"));
+        Double amount = Double.valueOf(data.getParameter("var_amount"));
         
-        String p = data.getParameter("var_price");
-        Double price = Double.valueOf(p);
-        
-        String a = data.getParameter("var_amount");
-        Double amount = Double.valueOf(a);
-        
-        Double broto = price * amount;
-        Double netto, discount;
-        Integer disc;
-        
-        if (broto>25000){
-            disc = 15;
-        }
-        else if(broto>16000){
-            disc = 10;
-        }
-        else{
-            disc = 0;
-        }
-        
-        discount = broto*disc/100;
-        netto = broto - discount;
+        proses obj = new proses();
         
         n.addAttribute("namefruit",name);
         n.addAttribute("pricefruit",price);
         n.addAttribute("amountkilo",amount);
-        n.addAttribute("discamount",discount);
-        n.addAttribute("discnumber",disc);
-        n.addAttribute("beforeprice",broto);
-        n.addAttribute("afterprice",netto);
+        n.addAttribute("beforeprice",obj.broto(price, amount));
+        n.addAttribute("discnumber",obj.disc(obj.broto(price, amount)));
+        n.addAttribute("discamount",obj.discount(price, amount));
+        n.addAttribute("afterprice",obj.netto(price, amount));
         
         return "MuhammadIqbal";
     }
