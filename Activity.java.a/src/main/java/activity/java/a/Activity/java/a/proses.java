@@ -28,6 +28,10 @@ public class proses {
         }
     }
     
+    public Double tunai(Double tn,Double netto){
+        return tn-netto;
+    }
+    
     public Double discount(Double price,Double amount){
         return broto(price,amount)*disc(price*amount)/100;
     }

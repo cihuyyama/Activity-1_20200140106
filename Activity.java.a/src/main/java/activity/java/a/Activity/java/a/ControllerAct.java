@@ -21,6 +21,7 @@ public class ControllerAct {
         String name = data.getParameter("var_name");
         Double price = Double.valueOf(data.getParameter("var_price"));
         Double amount = Double.valueOf(data.getParameter("var_amount"));
+        Double tunai = Double.valueOf(data.getParameter("var_cash"));
         
         proses obj = new proses();
         
@@ -31,6 +32,8 @@ public class ControllerAct {
         n.addAttribute("discnumber",obj.disc(obj.broto(price, amount)));
         n.addAttribute("discamount",obj.discount(price, amount));
         n.addAttribute("afterprice",obj.netto(price, amount));
+        n.addAttribute("uang",tunai);
+        n.addAttribute("tunai",obj.tunai(tunai, obj.netto(price, amount)));
         
         return "MuhammadIqbal";
     }
